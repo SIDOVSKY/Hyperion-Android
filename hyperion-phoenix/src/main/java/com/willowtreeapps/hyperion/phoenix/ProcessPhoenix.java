@@ -153,25 +153,4 @@ public class ProcessPhoenix extends Activity {
 
         return deletedAll;
     }
-
-    /**
-     * Checks if the current process is a temporary Phoenix Process.
-     * This can be used to avoid initialisation of unused resources or to prevent running code that
-     * is not multi-process ready.
-     *
-     * @return true if the current process is a temporary Phoenix Process
-     */
-    public static boolean isPhoenixProcess(Context context) {
-        int currentPid = Process.myPid();
-        ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> runningProcesses = manager.getRunningAppProcesses();
-        if (runningProcesses != null) {
-            for (ActivityManager.RunningAppProcessInfo processInfo : runningProcesses) {
-                if (processInfo.pid == currentPid && processInfo.processName.endsWith(":phoenix")) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }
