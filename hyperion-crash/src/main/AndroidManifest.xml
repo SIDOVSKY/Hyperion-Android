@@ -6,8 +6,7 @@
             android:name=".CrashActivity"
             android:theme="@style/hc_ActivityTheme"
             android:noHistory="true"
-            android:excludeFromRecents="true"
-            android:process=":crash" />
+            android:excludeFromRecents="true" />
     </application>
 
 </manifest>
